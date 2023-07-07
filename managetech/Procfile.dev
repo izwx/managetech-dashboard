@@ -1,0 +1,2 @@
+web: bundle exec rails server -p 8020 -b ${HOST:="127.0.0.1"}
+worker: bundle exec sidekiq --environment ${RAILS_ENV:="development"} -C config/sidekiq.yml

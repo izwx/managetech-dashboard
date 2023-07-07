@@ -1,0 +1,31 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem "sqlite3"
+#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: 127.0.0.1
+  username: managetech
+  password: managetech
+  timeout: 5000
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: managetech_development  
+
+test:
+  <<: *default
+  database: managetech_test
+
+staging:
+  <<: *default
+  database: managetech_staging
+
+production:
+  <<: *default
+  database: managetech_production
